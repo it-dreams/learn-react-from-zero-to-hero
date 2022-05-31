@@ -9,19 +9,31 @@ This is a react repo with cover all react topics....
 1. React Fundamentals
 
    - JSX
-   - Components (Functional & Class)
+   - Components 
+        - Functional Components
+        - Class Components
+
    - Components Life Cycle
    - Props vs State
    - Prop types & Default Props
    - Conditional Rendringing
    - Lists & Keys
-   - Basic Hooks (useState & useEffect)
+   - Basic Hooks 
+        - useState 
+        - useEffect
+
    - Composition vs Inheritance
    - ES6 Concepts
 
 2. React Advance
 
-   - Hooks (useCallback, useRef, useMemo, useReducer, useContext)
+   - Hooks 
+        - useCallback 
+        - useRef 
+        - useMemo 
+        - useReducer 
+        - useContext
+
    - Create Custom Hooks
    - Context
    - Refs
@@ -33,13 +45,45 @@ This is a react repo with cover all react topics....
 
 3. React Ecosystem
 
-   - Router (React Router, Reach Router)
-   - Forms (React Hook Form, Formik, Final Form)
-   - State Management (Context/State, Redux, MobX)
-   - Styling (Styled Components, Emotion, Bootstrap, Material UI, Chakra UI, Ant Design)
-   - API Calls (use-http, react-query, Apollo, Relay Modern, Axios, Unfetch, Superagent)
-   - SSR / SSG (Next.js & Gatsby)
-   - Testing (Jest, React Testing Library, Cypress)
+   - Router 
+        - React Router
+        - Reach Router
+
+   - Forms 
+        - React Hook Form
+        - Formik
+        - Final Form
+
+   - State Management 
+        - Context/State
+        - Redux
+        - MobX
+
+   - Styling 
+        - Styled Components
+        - Emotion
+        - Bootstrap
+        - Material UI
+        - Chakra UI
+        - Ant Design
+
+   - API Calls 
+        - use-http
+        - react-query
+        - Apollo
+        - Relay Modern
+        - Axios
+        - Unfetch
+        - Superagent
+        
+   - SSR / SSG 
+        - Next.js
+        - Gatsby
+
+   - Testing 
+        - Jest
+        - React Testing Library
+        - Cypress
 
 
 
