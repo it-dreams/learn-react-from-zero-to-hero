@@ -1,9 +1,14 @@
 import './App.css';
+import Navbar from './components/Navbar';
+import News from './components/News';
+import NewsItem from './components/NewsItem';
 
 function App() {
   return (
     <div className="App">
-      Hello World!
+      <Navbar />
+      <News />
+      <NewsItem />
     </div>
   );
 }
