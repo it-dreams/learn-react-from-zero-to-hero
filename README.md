@@ -12,10 +12,12 @@ This is a react repo with cover all react topics....
    - Components (Functional & Class)
    - Components Life Cycle
    - Props vs State
+   - Prop types & Default Props
    - Conditional Rendringing
    - Lists & Keys
    - Basic Hooks (useState & useEffect)
    - Composition vs Inheritance
+   - ES6 Concepts
 
 2. React Advance
 
@@ -38,3 +40,13 @@ This is a react repo with cover all react topics....
    - API Calls (use-http, react-query, Apollo, Relay Modern, Axios, Unfetch, Superagent)
    - SSR / SSG (Next.js & Gatsby)
    - Testing (Jest, React Testing Library, Cypress)
+
+
+
+
+
+
+
+
+
+ 
