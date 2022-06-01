@@ -48,6 +48,11 @@ class News extends Component {
     constructor() {
         super();
         console.log("Hello I am a constructor from News component");
+
+        this.state = {
+            articles: this.articles,
+            loading: false
+        }
     }
 
     render() {
@@ -55,22 +60,14 @@ class News extends Component {
             <div className="container my-3">
                 <h1>NewsApp - Top Headlines</h1>
 
-                <div className="row text-left">
-                    <div className="col-md-3">
-                        <NewsItem title="Title 1" description="Description 1" imgUrl="https://cdn.24.co.za/files/Cms/General/d/10743/97d776dc91734e98906c0e1b7f3b1afa.jpg" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="Title 2" description="Description 2" imgUrl="https://cdn.24.co.za/files/Cms/General/d/10743/97d776dc91734e98906c0e1b7f3b1afa.jpg" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="Title 3" description="Description 3" imgUrl="https://cdn.24.co.za/files/Cms/General/d/10743/97d776dc91734e98906c0e1b7f3b1afa.jpg" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="Title 4" description="Description 4" imgUrl="https://cdn.24.co.za/files/Cms/General/d/10743/97d776dc91734e98906c0e1b7f3b1afa.jpg" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="Title 5" description="Description 5" imgUrl="https://cdn.24.co.za/files/Cms/General/d/10743/97d776dc91734e98906c0e1b7f3b1afa.jpg" />
-                    </div>
+                <div className="row">
+                    {this.state.articles.map((element) => {
+                        // console.log(element)
+                        return <div className="col-md-3" key={element.url}>
+                            <NewsItem title={element.title} description={element.description} imgUrl={element.urlToImage} newsUrl={element.url} />
+                        </div>
+                    })}
+                    
                 </div>
             </div>
         )
