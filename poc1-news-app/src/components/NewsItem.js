@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import noImage from '../assest/images/no-image.jpeg'
 
 class NewsItem extends Component {
   render() {
@@ -7,7 +8,7 @@ class NewsItem extends Component {
     return (
       <div className="my-3">
         <div className="card" style={{ width: "18rem" }}>
-          <img src={imgUrl} className="card-img-top" alt="..." />
+          <img src={imgUrl ? imgUrl : noImage} className="card-img-top" alt="..." />
           <div className="card-body text-start">
             <h5 className="card-title">{title}...</h5>
             <p className="card-text">{description}...</p>
@@ -19,4 +20,4 @@ class NewsItem extends Component {
   }
 }
 
-export default  NewsItem;
+export default NewsItem;
