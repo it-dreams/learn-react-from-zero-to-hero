@@ -3,7 +3,7 @@ import noImage from '../assest/images/no-image.jpeg'
 
 class NewsItem extends Component {
   render() {
-    let { title, description, imgUrl, newsUrl } = this.props;
+    let { title, description, author, date, imgUrl, newsUrl } = this.props;
 
     return (
       <div className="my-3">
@@ -11,7 +11,8 @@ class NewsItem extends Component {
           <img src={imgUrl ? imgUrl : noImage} className="card-img-top" alt="..."  style={{height: '200px'}}/>
           <div className="card-body text-start">
             <h5 className="card-title">{title}...</h5>
-            <p className="card-text">{description}...</p>
+            <small>Published by <strong>{author}</strong> on <strong>{date}</strong></small>
+            <p className="card-text my-2">{description}...</p>
             <a href={newsUrl} target="_blank" className="btn btn-sm btn-dark">Read More...</a>
           </div>
         </div>

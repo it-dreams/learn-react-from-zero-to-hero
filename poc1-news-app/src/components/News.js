@@ -70,7 +70,7 @@ class News extends Component {
                     {!this.state.loading && this.state.articles.map((element) => {
                         console.log(element);
                         return <div className="col-md-3" key={element.url}>
-                            <NewsItem title={element.title ? element.title.slice(0, 55) : ""} description={element.description ? element.description.slice(0, 150) : ""} imgUrl={element.urlToImage} newsUrl={element.url} />
+                            <NewsItem title={element.title ? element.title.slice(0, 55) : ""} description={element.description ? element.description.slice(0, 150) : ""} author={element.author} date={new Date(element.publishedAt)} imgUrl={element.urlToImage} newsUrl={element.url} />
                         </div>
                     })}
                 </div>
