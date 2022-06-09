@@ -59,9 +59,9 @@ class News extends Component {
 
     render() {
         return (
-            <div className="container my-5">
-                <h1>NewsApp - Top Headlines</h1>
-                <div className='container d-flex justify-content-between my-3'>
+            <div className="container my-3">
+                <h1 className=' text-center'>NewsApp - Top Headlines</h1>
+                <div className='d-flex justify-content-between my-3'>
                     <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
                     <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
                 </div>
@@ -70,12 +70,12 @@ class News extends Component {
                     
                     {!this.state.loading && this.state.articles.map((element) => {
                         console.log(element);
-                        return <div className="col-md-3" key={element.url}>
+                        return <div className="col-lg-3 col-md-4 col-sm-12" key={element.url}>
                             <NewsItem title={element.title ? element.title.slice(0, 55) : ""} description={element.description ? element.description.slice(0, 95) : ""} author={element.author} date={element.publishedAt} imgUrl={element.urlToImage} newsUrl={element.url} source={element.source.name}/>
                         </div>
                     })}
                 </div>
-                <div className='container d-flex justify-content-between my-3'>
+                <div className='d-flex justify-content-between my-3'>
                     <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
                     <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
                 </div>
