@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Html5Icons from './Html5Icons';
 
 class Sidebar extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class Sidebar extends Component {
                         <ul className="list-group list-group-flush">
                             {this.state.articles.map((element, index) => {
                                 console.log(element);
-                                return <li className="list-group-item" key={index}>{index+1}. {element.source.name}</li>
+                                return <li className="list-group-item" key={index}><Html5Icons icon="fas fa-folder-open" /> {element.source.name}</li>
                             })}
                             
                         </ul>
@@ -43,7 +44,7 @@ class Sidebar extends Component {
                         <ul className="list-group list-group-flush">
                             {this.state.articles.map((element, index) => {
                                 console.log(new Date(element.publishedAt).getMonth());
-                                return <li className="list-group-item" key={index}>{new Date(element.publishedAt).toDateString()}</li>
+                                return <li className="list-group-item" key={index}><Html5Icons icon="fa-duotone fa-calendar-check" />{new Date(element.publishedAt).toDateString()}</li>
                             })}
 
                         </ul>
