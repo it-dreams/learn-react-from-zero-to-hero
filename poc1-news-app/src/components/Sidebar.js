@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import Html5Icons from './Html5Icons';
 
 class Sidebar extends Component {
@@ -25,15 +26,17 @@ class Sidebar extends Component {
     render() {
         return (
             <>
-                <div className="card" style={{ marginTop: '78px' }}>
+                <div className="card" style={{ marginTop: '60px' }}>
                     <h5 className="card-header bg-dark text-light">Source</h5>
                     <div className="card-body" style={{ height: '303px', overflow: 'auto' }}>
                         <ul className="list-group list-group-flush">
                             {this.state.articles.map((element, index) => {
                                 console.log(element);
-                                return <li className="list-group-item" key={index}><Html5Icons icon="fas fa-folder-open" /> {element.source.name}</li>
+                                return <li className="list-group-item" key={index}>
+                                    <Link to={element.source.name} style={{textDecoration: 'none', color: '#000'}}><Html5Icons icon="fas fa-folder-open" /> {element.source.name}</Link>
+                                </li>
                             })}
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -44,7 +47,9 @@ class Sidebar extends Component {
                         <ul className="list-group list-group-flush">
                             {this.state.articles.map((element, index) => {
                                 console.log(new Date(element.publishedAt).getMonth());
-                                return <li className="list-group-item" key={index}><Html5Icons icon="fa-duotone fa-calendar-check" />{new Date(element.publishedAt).toDateString()}</li>
+                                return <li className="list-group-item" key={index}>
+                                    <Link to="/" style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fa-duotone fa-calendar-check" />{new Date(element.publishedAt).toDateString()}</Link>
+                                </li>
                             })}
 
                         </ul>

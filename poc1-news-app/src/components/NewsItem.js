@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import noImage from '../assest/images/no-image.jpeg'
 
 class NewsItem extends Component {
@@ -8,9 +9,9 @@ class NewsItem extends Component {
     return (
       <div className="my-3">
         <div className="card" style={{ width: "18rem" }}>
-          <span className="position-absolute top-0 end-0 badge rounded-pill bg-danger" style={{ transform: 'translate(5%, -50%)' }}>
+          <Link to={source} className="position-absolute top-0 end-0 badge rounded-pill bg-danger" style={{ transform: 'translate(5%, -50%)', textDecoration: 'none', color: '#fff' }}>
             {source}
-          </span>
+          </Link>
           <img src={imgUrl ? imgUrl : noImage} className="card-img-top" alt="..." style={{ height: '200px' }} />
           <div className="card-body text-start">
             <h5 className="card-title">{title}...</h5>
