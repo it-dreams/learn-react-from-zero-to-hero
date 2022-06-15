@@ -21,8 +21,21 @@ class Sidebar extends Component {
         // console.log(parseData);
         this.setState({
             articles: parseData.articles,
-            archive: this.getArchive(parseData.articles)
+            archive: this.getArchive(parseData.articles),
+            sources: this.getSources(parseData.articles)
         })
+    }
+
+    getSources = (data) => {
+        let sourceMap = {};
+        let sourceUpdate = [];
+        data.forEach(res => {
+            if (!sourceMap[res.source.name]) {
+                sourceMap[res.source.name] = res.source;
+                sourceUpdate.push(res.source.name)
+            }
+        })
+        return sourceUpdate;
     }
 
     getArchive = (data) => {
@@ -34,7 +47,6 @@ class Sidebar extends Component {
                 archiveUpdate.push(new Date(archive.publishedAt).toDateString());
             }
         })
-        // console.log(archiveMap);
         return archiveUpdate;
     }
 
@@ -42,30 +54,29 @@ class Sidebar extends Component {
         return (
             <>
                 <div className="card" style={{ marginTop: '60px' }}>
-                    <h5 className="card-header bg-dark text-light">Source</h5>
-                    <div className="card-body" style={{ height: '503px', overflow: 'auto' }}>
+                    <h5 className="card-header bg-dark text-light">News Sources</h5>
+                    <div className="card-body" style={{ height: '345px', overflow: 'auto' }}>
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item"><Link to='/aajtak.in' style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />Aajtak</Link></li>
-                            {this.state.articles.map((element, index) => {
-                                return <li className="list-group-item" key={index}>
-                                    <Link to={element.source.name} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />{element.source.name}</Link>
+                            {this.state.sources && this.state.sources.map((source) => {
+                                return <li className="list-group-item" key={source}>
+                                    <Link to='/' style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />{source}</Link>
                                 </li>
                             })}
-
                         </ul>
                     </div>
                 </div>
 
                 <div className="card my-4">
                     <h5 className="card-header bg-dark text-light">Arcives</h5>
-                    <div className="card-body" style={{ maxHeight: '303px', overflow: 'auto' }}>
+                    <div className="card-body" style={{ maxHeight: '345px', overflow: 'auto' }}>
                         <ul className="list-group list-group-flush">
                             {this.state.archive && this.state.archive.map((date) => {
                                 return <li className="list-group-item" key={date}>
                                     <Link to="/" style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fa-duotone fa-calendar-check" />{date}</Link>
                                 </li>
                             })}
-                            
+
                         </ul>
                     </div>
                 </div>
