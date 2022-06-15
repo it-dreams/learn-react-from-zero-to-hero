@@ -18,22 +18,37 @@ class Sidebar extends Component {
         this.setState({ loading: true })
         let data = await fetch(topHeadlines);
         let parseData = await data.json();
-        console.log(parseData);
+        // console.log(parseData);
         this.setState({
-            articles: parseData.articles
+            articles: parseData.articles,
+            archive: this.getArchive(parseData.articles)
         })
     }
+
+    getArchive = (data) => {
+        let archiveMap = {};
+        let archiveUpdate = [];
+        data.forEach(archive => {
+            if (!archiveMap[new Date(archive.publishedAt).toDateString()]) {
+                archiveMap[new Date(archive.publishedAt).toDateString()] = new Date(archive.publishedAt).toDateString();
+                archiveUpdate.push(new Date(archive.publishedAt).toDateString());
+            }
+        })
+        // console.log(archiveMap);
+        return archiveUpdate;
+    }
+
     render() {
         return (
             <>
                 <div className="card" style={{ marginTop: '60px' }}>
                     <h5 className="card-header bg-dark text-light">Source</h5>
-                    <div className="card-body" style={{ height: '303px', overflow: 'auto' }}>
+                    <div className="card-body" style={{ height: '503px', overflow: 'auto' }}>
                         <ul className="list-group list-group-flush">
+                            <li className="list-group-item"><Link to='/aajtak.in' style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />Aajtak</Link></li>
                             {this.state.articles.map((element, index) => {
-                                console.log(element);
                                 return <li className="list-group-item" key={index}>
-                                    <Link to={element.source.name} style={{textDecoration: 'none', color: '#000'}}><Html5Icons icon="fas fa-folder-open" /> {element.source.name}</Link>
+                                    <Link to={element.source.name} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />{element.source.name}</Link>
                                 </li>
                             })}
 
@@ -43,15 +58,14 @@ class Sidebar extends Component {
 
                 <div className="card my-4">
                     <h5 className="card-header bg-dark text-light">Arcives</h5>
-                    <div className="card-body" style={{ height: '303px', overflow: 'auto' }}>
+                    <div className="card-body" style={{ maxHeight: '303px', overflow: 'auto' }}>
                         <ul className="list-group list-group-flush">
-                            {this.state.articles.map((element, index) => {
-                                console.log(new Date(element.publishedAt).getMonth());
-                                return <li className="list-group-item" key={index}>
-                                    <Link to="/" style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fa-duotone fa-calendar-check" />{new Date(element.publishedAt).toDateString()}</Link>
+                            {this.state.archive && this.state.archive.map((date) => {
+                                return <li className="list-group-item" key={date}>
+                                    <Link to="/" style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fa-duotone fa-calendar-check" />{date}</Link>
                                 </li>
                             })}
-
+                            
                         </ul>
                     </div>
                 </div>
@@ -60,4 +74,4 @@ class Sidebar extends Component {
     }
 }
 
-export default Sidebar
+export default Sidebar;
