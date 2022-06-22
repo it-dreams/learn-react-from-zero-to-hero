@@ -35,9 +35,8 @@ class News extends Component {
         const allNewsUrl = `https://newsapi.org/v2/${this.props.newsType}?domains=${this.props.newsDomain}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
         this.setState({ loading: true })
-        let dataAll = await fetch(allNewsUrl);
-        let dataHeadlines = await fetch(topHeadlines);
-        let parseData = await dataHeadlines.json();
+        let data = await fetch(allNewsUrl);
+        let parseData = await data.json();
         console.log(parseData);
         this.setState({
             articles: parseData.articles,

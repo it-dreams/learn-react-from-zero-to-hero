@@ -4,11 +4,12 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import News from './components/News';
 import Sidebar from './components/Sidebar';
+import PageNotFound from './components/PageNotFound';
 // import About from './components/About';
 
 function App() {
   const apiKey = process.env.REACT_APP_NEWS_API;
-  const newsType = 'top-headlines';
+  const newsType = 'everything';
   const newsDomain = 'aajtak.in'; //abplive.com, indiatoday.in, indiatvnews.com, 
   const country = 'in';
   const category = ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'];
@@ -28,6 +29,7 @@ function App() {
               <Route exect path='/science' element={<News key='science' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='science' country={country} pageSize={pageSize} />}></Route>
               <Route exect path='/sports' element={<News key='sports' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='sports' country={country} pageSize={pageSize} />}></Route>
               <Route exect path='/technology' element={<News key='technology' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='technology' country={country} pageSize={pageSize} />}></Route>
+              <Route exect path='*' element={<PageNotFound />}></Route>
             </Routes>
           </div>
           <div className='col-lg-3 col-md-4 col-sm-12'>
