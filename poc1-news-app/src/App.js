@@ -1,12 +1,12 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import News from './components/News';
-import Sidebar from './components/Sidebar';
-import PageNotFound from './components/PageNotFound';
-import About from './components/About';
-import Categories from './components/Categories'
+import Navbar from './components/shared/Navbar';
+import Footer from './components/shared/Footer';
+import News from './components/pages/News';
+import Sidebar from './components/shared/Sidebar';
+import PageNotFound from './components/pages/PageNotFound';
+import About from './components/pages/About';
+import Categories from './components/pages/Categories'
 
 function App() {
   const apiKey = process.env.REACT_APP_NEWS_API;
@@ -25,7 +25,7 @@ function App() {
             <Routes>
               <Route exect path='about' element={<About />} />
               <Route exect path='category' element={<Categories />}>
-                <Route exect path='/' element={<News key={category} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />}></Route>
+                <Route exect path='category/:category' element={<News key={category} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />}></Route>
               </Route>
               {/* <Route exect path='/' element={<News key='general' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='general' country={country} pageSize={pageSize} />}></Route>
               <Route exect path='/business' element={<News key='business' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='business' country={country} pageSize={pageSize} />}></Route>

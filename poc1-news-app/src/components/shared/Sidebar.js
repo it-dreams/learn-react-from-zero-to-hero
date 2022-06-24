@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import Html5Icons from './Html5Icons';
+import Html5Icons from '../shared/Html5Icons';
 
 class Sidebar extends Component {
     constructor(props) {

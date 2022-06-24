@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import NewsItem from './NewsItem';
-import Spinner from './Spinner';
+import NewsItem from '../pages/NewsItem';
+import Spinner from '../shared/Spinner';
 import PropTypes from 'prop-types';
 
 class News extends Component {
