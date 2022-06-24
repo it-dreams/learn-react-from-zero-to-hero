@@ -5,7 +5,8 @@ import Footer from './components/Footer';
 import News from './components/News';
 import Sidebar from './components/Sidebar';
 import PageNotFound from './components/PageNotFound';
-// import About from './components/About';
+import About from './components/About';
+import Categories from './components/Categories'
 
 function App() {
   const apiKey = process.env.REACT_APP_NEWS_API;
@@ -22,6 +23,8 @@ function App() {
         <div className='row'>
           <div className='col-lg-9 col-md-8 col-sm-12'>
             <Routes>
+              <Route exect path='about' element={<About />} />
+              <Route exect path='category' element={<Categories />} />
               <Route exect path='/' element={<News key='general' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='general' country={country} pageSize={pageSize} />}></Route>
               <Route exect path='/business' element={<News key='business' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='business' country={country} pageSize={pageSize} />}></Route>
               <Route exect path='/entertainment' element={<News key='entertainment' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='entertainment' country={country} pageSize={pageSize} />}></Route>

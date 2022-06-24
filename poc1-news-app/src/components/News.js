@@ -35,7 +35,7 @@ class News extends Component {
         const allNewsUrl = `https://newsapi.org/v2/${this.props.newsType}?domains=${this.props.newsDomain}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
         this.setState({ loading: true })
-        let data = await fetch(allNewsUrl);
+        let data = await fetch(topHeadlines);
         let parseData = await data.json();
         console.log(parseData);
         this.setState({
@@ -64,10 +64,10 @@ class News extends Component {
         return (
             <div className="container my-5">
                 <h1 className=' text-center'>NewsApp - Top Headlines</h1>
-                <div className='d-flex justify-content-between my-3'>
+                {/* <div className='d-flex justify-content-between my-3'>
                     <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
                     <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
-                </div>
+                </div> */}
                 <div className="row" style={{ minHeight: '60vh' }}>
                     {this.state.loading && <Spinner />}
 
