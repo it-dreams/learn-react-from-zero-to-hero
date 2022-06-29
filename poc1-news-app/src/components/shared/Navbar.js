@@ -15,30 +15,30 @@ class Navbar extends Component {
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/about">About</Link>
-                                </li> 
+                                </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/category">Category</Link>
-                                </li> 
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/">General</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="business">Business</Link>
+                                    <Link className="nav-link" to="category/general">General</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="entertainment">Entertainment</Link>
+                                    <Link className="nav-link" to="category/business">Business</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="health">Health</Link>
+                                    <Link className="nav-link" to="category/entertainment">Entertainment</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="science">Science</Link>
+                                    <Link className="nav-link" to="category/health">Health</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="sports">Sports</Link>
+                                    <Link className="nav-link" to="category/science">Science</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="technology">Technology</Link>
+                                    <Link className="nav-link" to="category/sports">Sports</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="category/technology">Technology</Link>
                                 </li>
                             </ul>
                         </div>
