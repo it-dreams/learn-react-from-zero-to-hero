@@ -9,7 +9,7 @@ class NewsItem extends Component {
     return (
       <div className="my-3">
         <div className="card" style={{ width: "18rem" }}>
-          <Link to={source} className="position-absolute top-0 end-0 badge rounded-pill bg-danger" style={{ transform: 'translate(5%, -50%)', textDecoration: 'none', color: '#fff' }}>
+          <Link to={`/source/${source}`} className="position-absolute top-0 end-0 badge rounded-pill bg-danger" style={{ transform: 'translate(5%, -50%)', textDecoration: 'none', color: '#fff' }}>
             {source}
           </Link>
           <img src={imgUrl ? imgUrl : noImage} className="card-img-top" alt="..." style={{ height: '200px' }} />
@@ -17,7 +17,7 @@ class NewsItem extends Component {
             <h5 className="card-title">{title}...</h5>
             <p className="card-text"><small className='text-muted' style={{ fontSize: '12px' }}><strong>By </strong>{author} <strong>on </strong>{new Date(date).toGMTString()}</small></p>
             <p className="card-text my-2">{description}...</p>
-            <Link to={newsUrl} target="_blank" className="btn btn-sm btn-dark">Read More...</Link>
+            <Link to={`//${newsUrl}`} target="_blank" className="btn btn-sm btn-dark">Read More...</Link>
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ function App() {
               <Route path='about' element={<About />} />
               <Route path='/' element={<Navigate replace to='category/general' />} />
               <Route path='category'>
-                {/* <Route exect path=':categoryId' element={<News key={category} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} /> */}
+                {/* <Route exect path=':categoryid' element={<News key={category} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} /> */}
                 <Route path='general' element={<News key='general' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='general' country={country} pageSize={pageSize} />} />
                 <Route path='business' element={<News key='business' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='business' country={country} pageSize={pageSize} />} />
                 <Route path='entertainment' element={<News key='entertainment' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='entertainment' country={country} pageSize={pageSize} />} />

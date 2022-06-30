@@ -62,18 +62,15 @@ class News extends Component {
 
     render() {
         return (
-            <div className="container my-5">
+            <div className="container my-4">
                 <h1 className=' text-center'>NewsApp - Top Headlines</h1>
-                {/* <div className='d-flex justify-content-between my-3'>
-                    <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
-                    <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
-                </div> */}
-                <div className="row" style={{ minHeight: '60vh' }}>
+                
+                <div className="row" style={{ minHeight: '60vh', marginTop: '20px' }}>
                     {this.state.loading && <Spinner />}
 
                     {!this.state.loading && this.state.articles.map((element) => {
                         return <div className="col-lg-3 col-md-4 col-sm-12" key={element.url}>
-                            <NewsItem title={element.title ? element.title.slice(0, 55) : ""} description={element.description ? element.description.slice(0, 95) : ""} author={element.author} date={element.publishedAt} imgUrl={element.urlToImage} newsUrl={element.url} source={element.source.name} />
+                            <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 85) : ""} author={element.author} date={element.publishedAt} imgUrl={element.urlToImage} newsUrl={element.url} source={element.source.name} />
                         </div>
                     })}
                 </div>

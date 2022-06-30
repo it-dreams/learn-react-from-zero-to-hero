@@ -53,14 +53,14 @@ class Sidebar extends Component {
     render() {
         return (
             <>
-                <div className="card" style={{ marginTop: '60px' }}>
+                <div className="card" style={{ marginTop: '35px' }}>
                     <h5 className="card-header bg-dark text-light">News Sources</h5>
                     <div className="card-body" style={{ height: '345px', overflow: 'auto' }}>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item"><Link to='/aajtak.in' style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />Aajtak</Link></li>
+                            {/* <li className="list-group-item"><Link to='source/aajtak.in' style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />Aajtak</Link></li> */}
                             {this.state.sources && this.state.sources.map((source) => {
                                 return <li className="list-group-item" key={source}>
-                                    <Link to='/' style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />{source}</Link>
+                                    <Link to={`source/${source}`} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons />{source}</Link>
                                 </li>
                             })}
                         </ul>
@@ -73,7 +73,7 @@ class Sidebar extends Component {
                         <ul className="list-group list-group-flush">
                             {this.state.archive && this.state.archive.map((date) => {
                                 return <li className="list-group-item" key={date}>
-                                    <Link to="/" style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fa-duotone fa-calendar-check" />{date}</Link>
+                                    <Link to={`archive/${date}`} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons />{date}</Link>
                                 </li>
                             })}
 
