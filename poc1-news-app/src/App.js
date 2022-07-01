@@ -25,22 +25,25 @@ function App() {
             <Routes>
               <Route path='about' element={<About />} />
               <Route path='/' element={<Navigate replace to='category/general' />} />
-              <Route path='category'>
-                {/* <Route exect path=':categoryid' element={<News key={category} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} /> */}
-                <Route path='general' element={<News key='general' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='general' country={country} pageSize={pageSize} />} />
-                <Route path='business' element={<News key='business' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='business' country={country} pageSize={pageSize} />} />
-                <Route path='entertainment' element={<News key='entertainment' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='entertainment' country={country} pageSize={pageSize} />} />
-                <Route path='health' element={<News key='health' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='health' country={country} pageSize={pageSize} />} />
-                <Route path='science' element={<News key='science' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='science' country={country} pageSize={pageSize} />} />
-                <Route path='sports' element={<News key='sports' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='sports' country={country} pageSize={pageSize} />} />
-                <Route path='technology' element={<News key='technology' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='technology' country={country} pageSize={pageSize} />} />
-                <Route path='source'>
-                  <Route path=':name' element={<Sidebar apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category[0]} country={country} />} />
-                </Route>
-                <Route path='archive'>
-                  <Route path=':date' element={<Sidebar apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category[0]} country={country} />} />
-                </Route>
+              <Route exact path='category' element={<Categories />} />
+              <Route exact path='category'>
+                {/* <Route exect path=':category' element={<News key={category} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} /> */}
+                <Route exact path='general' element={<News key='general' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='general' country={country} pageSize={pageSize} />} />
+                <Route exact path='business' element={<News key='business' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='business' country={country} pageSize={pageSize} />} />
+                <Route exact path='entertainment' element={<News key='entertainment' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='entertainment' country={country} pageSize={pageSize} />} />
+                <Route exact path='health' element={<News key='health' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='health' country={country} pageSize={pageSize} />} />
+                <Route exact path='science' element={<News key='science' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='science' country={country} pageSize={pageSize} />} />
+                <Route exact path='sports' element={<News key='sports' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='sports' country={country} pageSize={pageSize} />} />
+                <Route exact path='technology' element={<News key='technology' style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category='technology' country={country} pageSize={pageSize} />} />
               </Route>
+              {/* <Outlet /> */}
+              <Route path='source'>
+                <Route path=':name' element={<Sidebar apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category[0]} country={country} />} />
+              </Route>
+              <Route path='archive'>
+                <Route path=':date' element={<Sidebar apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category[0]} country={country} />} />
+              </Route>
+
               <Route path='*' element={<PageNotFound />} />
             </Routes>
           </div>

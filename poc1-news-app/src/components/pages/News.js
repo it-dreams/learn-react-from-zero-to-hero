@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { useParams } from 'react-router-dom';
 import NewsItem from '../pages/NewsItem';
 import Spinner from '../shared/Spinner';
 import PropTypes from 'prop-types';
@@ -46,6 +47,7 @@ class News extends Component {
     }
 
     async componentDidMount() {
+        // let { categoryid } = this.props.params;
         this.updateNews();
     }
 
