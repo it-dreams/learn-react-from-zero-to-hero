@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import noImage from '../../assest/images/no-image.jpeg'
 
-class NewsItem extends Component {
-  render() {
-    let { title, description, author, date, imgUrl, newsUrl, source } = this.props;
+function NewsItem(props) {
+
+    let { title, description, author, date, imgUrl, newsUrl, source } = props;
 
     return (
       <div className="my-3">
@@ -22,7 +22,6 @@ class NewsItem extends Component {
         </div>
       </div>
     )
-  }
 }
 
 export default NewsItem;
