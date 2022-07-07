@@ -13,8 +13,8 @@ function Categories() {
     let {category} = useParams();
     return (
         <div className="container my-5">
-            {/* <h1 className='text-start'><u>Categories:</u> - {category}</h1> */}
-            <h1 className='text-start'><u>Categories:</u> - </h1>
+            <h1 className='text-start'><u>Categories:</u> - {category}</h1>
+            {/* <h1 className='text-start'><u>Categories:</u> - </h1> */}
             <Outlet />
         </div>
     )
