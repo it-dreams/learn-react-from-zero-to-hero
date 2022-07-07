@@ -60,7 +60,7 @@ class Sidebar extends Component {
                             {/* <li className="list-group-item"><Link to='source/aajtak.in' style={{ textDecoration: 'none', color: '#000' }}><Html5Icons icon="fas fa-folder-open" />Aajtak</Link></li> */}
                             {this.state.sources && this.state.sources.map((source) => {
                                 return <li className="list-group-item" key={source}>
-                                    <Link to={`source/${source}`} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons />{source}</Link>
+                                    <Link to={`source/${source}`} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons iconType="source" />{source}</Link>
                                 </li>
                             })}
                         </ul>
@@ -73,7 +73,7 @@ class Sidebar extends Component {
                         <ul className="list-group list-group-flush">
                             {this.state.archive && this.state.archive.map((date) => {
                                 return <li className="list-group-item" key={date}>
-                                    <Link to={`archive/${date}`} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons />{date}</Link>
+                                    <Link to={`archive/${date}`} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons iconType="archive" />{date}</Link>
                                 </li>
                             })}
 
