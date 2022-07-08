@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
-    // let { category } = useParams();
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">

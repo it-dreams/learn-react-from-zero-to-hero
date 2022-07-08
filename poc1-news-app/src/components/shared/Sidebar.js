@@ -76,7 +76,6 @@ class Sidebar extends Component {
                                     <Link to={`archive/${date}`} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons iconType="archive" />{date}</Link>
                                 </li>
                             })}
-
                         </ul>
                     </div>
                 </div>
