@@ -1,88 +1,78 @@
-import React, { Component } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
 import NewsItem from '../pages/NewsItem';
 import Spinner from '../shared/Spinner';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
-class News extends Component {
-    static defaultProps = {
-        newsType: 'top-headlines',
-        newsDomain: 'aajtak.in', //abplive.com, indiatoday.in, indiatvnews.com, 
-        country: 'in',
-        category: 'business',
-        pageSize: 15
-    }
+const News = (props) => {
+    const { category } = useParams();
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [page, setPage] = useState(1);
+    const [totalResults, setTotalResults] = useState(0);
 
-    static propTypes = {
-        newsType: PropTypes.string,
-        newsDomain: PropTypes.string,
-        country: PropTypes.string,
-        category: PropTypes.string,
-        pageSize: PropTypes.number
-    }
+    const updateNews = async () => {
+        const topHeadlines = `https://newsapi.org/v2/${props.newsType}?country=${props.country}&category=${category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+        const allNewsUrl = `https://newsapi.org/v2/${props.newsType}?domains=${props.newsDomain}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
 
-    constructor() {
-        super();
-        this.state = {
-            articles: [],
-            loading: false,
-            page: 1
-        }
-    }
-
-    async updateNews() {
-        const topHeadlines = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-
-        const allNewsUrl = `https://newsapi.org/v2/${this.props.newsType}?domains=${this.props.newsDomain}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-
-        this.setState({ loading: true })
+        setLoading(true);
         let data = await fetch(topHeadlines);
         let parseData = await data.json();
         console.log(parseData);
-        this.setState({
-            articles: parseData.articles,
-            totalResults: parseData.totalResults,
-            loading: false
-        })
+        setLoading(false);
+        setArticles(parseData.articles);
+        setTotalResults(parseData.totalResults);
     }
 
-    async componentDidMount() {
-        // let { categoryid } = this.props.params;
-        this.updateNews();
+    useEffect(() => {
+        updateNews();
+    }, [category])
+
+    const handlePrevClick = async () => {
+        setPage(page - 1);
+        updateNews();
     }
 
-    handlePrevClick = async () => {
-        this.setState({ page: this.state.page - 1 });
-        this.updateNews();
+    const handleNextClick = async () => {
+        setPage(page + 1);
+        updateNews();
     }
 
-    handleNextClick = async () => {
-        this.setState({ page: this.state.page + 1 });
-        this.updateNews();
-    }
+    return (
+        <div className="container my-4">
+            {/* <h1 className=' text-center'>NewsApp - Top Headlines</h1> */}
 
+            <div className="row" style={{ minHeight: '60vh', marginTop: '20px' }}>
+                {loading && <Spinner />}
 
-    render() {
-        return (
-            <div className="container my-4">
-                <h1 className=' text-center'>NewsApp - Top Headlines</h1>
-                
-                <div className="row" style={{ minHeight: '60vh', marginTop: '20px' }}>
-                    {this.state.loading && <Spinner />}
-
-                    {!this.state.loading && this.state.articles.map((element) => {
-                        return <div className="col-lg-3 col-md-4 col-sm-12" key={element.url}>
-                            <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 85) : ""} author={element.author} date={element.publishedAt} imgUrl={element.urlToImage} newsUrl={element.url} source={element.source.name} />
-                        </div>
-                    })}
-                </div>
-                <div className='d-flex justify-content-between my-3'>
-                    <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
-                    <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
-                </div>
+                {!loading && articles.map((element) => {
+                    return <div className="col-lg-3 col-md-4 col-sm-12" key={element.url}>
+                        <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 85) : ""} author={element.author} date={element.publishedAt} imgUrl={element.urlToImage} newsUrl={element.url} source={element.source.name} />
+                    </div>
+                })}
             </div>
-        )
-    }
+            <div className='d-flex justify-content-between my-3'>
+                <button disabled={page <= 1} type="button" className="btn btn-dark" onClick={handlePrevClick}>&larr; Previous</button>
+                <button disabled={page + 1 > Math.ceil(totalResults / props.pageSize)} type="button" className="btn btn-dark" onClick={handleNextClick}>Next &rarr;</button>
+            </div>
+        </div>
+    )
+}
+
+News.defaultProps = {
+    newsType: 'top-headlines',
+    newsDomain: 'aajtak.in', //abplive.com, indiatoday.in, indiatvnews.com, 
+    country: 'in',
+    category: 'business',
+    pageSize: 15
+}
+
+News.propTypes = {
+    newsType: PropTypes.string,
+    newsDomain: PropTypes.string,
+    country: PropTypes.string,
+    category: PropTypes.string,
+    pageSize: PropTypes.number
 }
 
 export default News;

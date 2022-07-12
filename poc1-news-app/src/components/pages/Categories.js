@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 
 function Categories() {
+    const { category } = useParams();
 
-    const [text, setText] = useState('');
-
-    const titleCase = () => {
-        let newText = text.toLowerCase();
-        setText(newText);
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     }
-    
-    let {category} = useParams();
+
     return (
         <div className="container my-5">
-            <h1 className='text-start'><u>Categories:</u> - {category}</h1>
-            {/* <h1 className='text-start'><u>Categories:</u> - </h1> */}
+            <h1 className='text-start'> {category ? `Top Headlines : ${capitalizeFirstLetter(category)}` : `Categories: -`}</h1>
             <Outlet />
         </div>
     )
