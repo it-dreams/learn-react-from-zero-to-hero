@@ -7,13 +7,18 @@ import useFetch from '../../hooks/useFetch';
 const News = (props) => {
     const [loading, data, page, updatePage, totalResults ] = useFetch(props)
 
-    const handlePrevClick = async () => {
-        updatePage('dec');
-    }
+    
+    // const handlePaginationClick = (type) => {
+    //     updatePage(type);
+    // }
+    
+    // const handlePrevClick = async () => {
+    //     updatePage('dec');
+    // }
 
-    const handleNextClick = async () => {
-        updatePage('inc');
-    }
+    // const handleNextClick = async () => {
+    //     updatePage('inc');
+    // }
 
     console.log(data)
 
@@ -29,8 +34,8 @@ const News = (props) => {
                 })}
             </div>
             <div className='d-flex justify-content-between my-3'>
-                <button disabled={page <= 1} type="button" className="btn btn-dark" onClick={handlePrevClick}>&larr; Previous</button>
-                <button disabled={page + 1 > Math.ceil(totalResults / props.pageSize)} type="button" className="btn btn-dark" onClick={handleNextClick}>Next &rarr;</button>
+                <button disabled={page <= 1} type="button" className="btn btn-dark" onClick={() => updatePage('dec')}>&larr; Previous</button>
+                <button disabled={page + 1 > Math.ceil(totalResults / props.pageSize)} type="button" className="btn btn-dark" onClick={() => updatePage('inc')}>Next &rarr;</button>
             </div>
         </div>
     )
