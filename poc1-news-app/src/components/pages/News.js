@@ -1,57 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
 import NewsItem from '../pages/NewsItem';
 import Spinner from '../shared/Spinner';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 const News = (props) => {
-    const { category } = useParams();
-    const [articles, setArticles] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    const [page, setPage] = useState(1);
-    const [totalResults, setTotalResults] = useState(0);
-    // const [result, updatePage] = useFetch(props);
-
-    // const updateNews = async () => {
-    //     const topHeadlines = `https://newsapi.org/v2/${props.newsType}?country=${props.country}&category=${category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-    //     const allNewsUrl = `https://newsapi.org/v2/${props.newsType}?domains=${props.newsDomain}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-
-    //     setLoading(true);
-    //     let data = await fetch(topHeadlines);
-    //     let parseData = await data.json();
-    //     console.log(parseData);
-    //     setLoading(false);
-    //     setArticles(parseData.articles);
-    //     setTotalResults(parseData.totalResults);
-    // }
-
-    // useEffect(() => {
-    //     updateNews();
-    // }, [category])
-
-    const { loading, result, updatePage } = useFetch(`https://newsapi.org/v2/${props.newsType}?country=${props.country}&category=${category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`)
+    const [loading, data, page, updatePage, totalResults ] = useFetch(props)
 
     const handlePrevClick = async () => {
-        // setPage(page - 1);
-        // updateNews();
-        updatePage(page - 1);
+        updatePage('dec');
     }
 
     const handleNextClick = async () => {
-        // setPage(page + 1);
-        // updateNews();
-        updatePage(page + 1);
+        updatePage('inc');
     }
 
-    console.log(result)
+    console.log(data)
 
     return (
         <div className="container">
             <div className="row" style={{ minHeight: '60vh', marginTop: '20px' }}>
                 {loading && <Spinner />}
                 {/* {JSON.stringify(result)} */}
-                {!loading && result.articles.map((element) => {
+                {!loading && data.articles.map((element) => {
                     return <div className="col-lg-3 col-md-4 col-sm-12" key={element.url}>
                         <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 85) : ""} author={element.author} date={element.publishedAt} imgUrl={element.urlToImage} newsUrl={element.url} source={element.source.name} />
                     </div>

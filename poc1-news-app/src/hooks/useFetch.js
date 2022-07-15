@@ -1,39 +1,31 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 
-const useFetch = (url) => {
+const useFetch = ({ newsDomain, newsType, country, apiKey, pageSize }) => {
     const { category } = useParams();
     const [loading, setLoading] = useState(true);
     const [result, setResult] = useState(null);
     const [page, setPage] = useState(1);
+    const [totalResults, setTotalResults] = useState();
 
     const updateNews = async () => {
-        fetch(url).then(response => {
-                return response.json()
+        fetch(`https://newsapi.org/v2/${newsType}?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`).then(response => {
+            return response.json()
         }).then(json => {
-                console.log(json)
-                setLoading(false)
-                setResult(json)
+            setLoading(false)
+            setTotalResults(json.totalResults)
+            setResult(json)
         })
-
-        // const topHeadlines = `https://newsapi.org/v2/${newsType}?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
-        // const allNewsUrl = `https://newsapi.org/v2/${newsType}?domains=${newsDomain}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
-        // setLoading(true);
-        // let data = await fetch(url);
-        // let parseData = await data.json();
-        // console.log(parseData);
-        // setResult(parseData);
-        // setArticles(parseData.articles);
-        // setTotalResults(parseData.totalResults);
     };
 
     useEffect(() => {
         updateNews();
-    }, [category]);
+    }, [category, page]);
 
-    const updatePage = (page) => setPage(page + 1);
+    // Pagination
+    const updatePage = (type) => setPage(page + Number(`${type === 'inc' ? 1 : -1}`));
 
-    return { loading, result, updatePage }
+    return [loading, result, page, updatePage, totalResults ]
 };
 
 export default useFetch;
