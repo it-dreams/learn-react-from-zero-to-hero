@@ -2,7 +2,7 @@
   "posts": [
     {
       "id": "1",
-      "title": "Post One",
+      "title": "Post Onee",
       "body": "This is a post one",
       "publishedAt": "10-08-2022"
     },
@@ -22,13 +22,25 @@
       "id": "4",
       "title": "Post Four",
       "body": "This is a post four",
-      "publishedAt": "20-08-2022"
+      "publishedAt": "2022-08-23"
     },
     {
       "title": "Post Five",
       "body": "This is a post five",
-      "publishedAt": "22-08-2022",
+      "publishedAt": "2022-08-25",
       "id": "39cTtWY"
+    },
+    {
+      "title": "Abc",
+      "body": "BCSSS",
+      "publishedAt": "2022-08-04",
+      "id": "TxzG-1_"
+    },
+    {
+      "title": "Post 7",
+      "body": "This is a post Seven.",
+      "publishedAt": "2022-08-25",
+      "id": "0I-AH1o"
     }
   ],
   "users": [
@@ -36,6 +48,16 @@
       "id": "1",
       "name": "Rahul",
       "email": "rahul@gmail.com"
+    },
+    {
+      "name": "Ram",
+      "email": "ram@gamil.com",
+      "id": "7jW9jyq"
+    },
+    {
+      "name": "Arti",
+      "email": "arti@gmail.com",
+      "id": "XBZBMTy"
     }
   ]
 }
