@@ -1,15 +1,18 @@
 {
-  "name": "poc3-mern-stack-app",
+  "name": "poc3-react-crud-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "json-server --watch db.json --port 5000"
+    "server": "json-server --watch db.json --port 5000",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.3.0",
     "json-server": "^0.17.0"
   }
 }
