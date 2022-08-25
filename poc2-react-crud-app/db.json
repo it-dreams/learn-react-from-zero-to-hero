@@ -1,0 +1,41 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Post One",
+      "body": "This is a post one",
+      "publishedAt": "10-08-2022"
+    },
+    {
+      "id": "2",
+      "title": "Post Two",
+      "body": "This is a post two",
+      "publishedAt": "10-08-2022"
+    },
+    {
+      "id": "3",
+      "title": "Post Three",
+      "body": "This is a post three",
+      "publishedAt": "10-08-2022"
+    },
+    {
+      "id": "4",
+      "title": "Post Four",
+      "body": "This is a post four",
+      "publishedAt": "20-08-2022"
+    },
+    {
+      "title": "Post Five",
+      "body": "This is a post five",
+      "publishedAt": "22-08-2022",
+      "id": "39cTtWY"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Rahul",
+      "email": "rahul@gmail.com"
+    }
+  ]
+}
