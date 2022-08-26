@@ -1,12 +1,12 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
 import restProvider from 'ra-data-simple-rest';
-import PostList from './components/PostList';
-import PostCreate from './components/PostCreate';
-import PostEdit from './components/PostEdit';
-import UserList from './components/UserList';
-import UserCreate from './components/UserCreate';
-import UserEdit from './components/UserEdit';
+import PostList from './components/posts/PostList';
+import PostCreate from './components/posts/PostCreate';
+import PostEdit from './components/posts/PostEdit';
+import UserList from './components/users/UserList';
+import UserCreate from './components/users/UserCreate';
+import UserEdit from './components/users/UserEdit';
 
 function App() {
   return (
