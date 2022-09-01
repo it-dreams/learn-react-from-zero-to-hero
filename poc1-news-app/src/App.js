@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container-fluid" style={{ minHeight: '90vh' }}>
+      <div className="container-fluid" style={{ minHeight: '90vh', marginTop: '50px' }}>
         <div className='row'>
           <div className='col-lg-9 col-md-8 col-sm-12'>
             <Routes>

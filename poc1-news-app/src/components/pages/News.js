@@ -13,7 +13,7 @@ const News = (props) => {
 
     const updateNews = async () => {
         const topHeadlines = `https://newsapi.org/v2/${props.newsType}?country=${props.country}&category=${category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-        const allNewsUrl = `https://newsapi.org/v2/${props.newsType}?domains=${props.newsDomain}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+        // const allNewsUrl = `https://newsapi.org/v2/${props.newsType}?domains=${props.newsDomain}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
 
         setLoading(true);
         let data = await fetch(topHeadlines);
