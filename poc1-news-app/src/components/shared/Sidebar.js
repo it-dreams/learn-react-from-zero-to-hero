@@ -52,8 +52,8 @@ class Sidebar extends Component {
 
     render() {
         return (
-            <>
-                <div className="card" style={{ marginTop: '55px' }}>
+            <div style={{ position: 'sticky', top: '100px' }}>
+                <div className="card" style={{ marginTop: '35px' }}>
                     <h5 className="card-header bg-dark text-light">News Sources</h5>
                     <div className="card-body" style={{ height: '360px', overflow: 'auto' }}>
                         <ul className="list-group list-group-flush">
@@ -69,18 +69,17 @@ class Sidebar extends Component {
 
                 <div className="card my-4">
                     <h5 className="card-header bg-dark text-light">Arcives</h5>
-                    <div className="card-body" style={{ maxHeight: '345px', overflow: 'auto' }}>
+                    <div className="card-body" style={{ maxHeight: '360px', overflow: 'auto' }}>
                         <ul className="list-group list-group-flush">
                             {this.state.archive && this.state.archive.map((date) => {
                                 return <li className="list-group-item" key={date}>
                                     <Link to={`archive/${date}`} style={{ textDecoration: 'none', color: '#000' }}><Html5Icons iconType="archive" />{date}</Link>
                                 </li>
                             })}
-
                         </ul>
                     </div>
                 </div>
-            </>
+            </div>
         )
     }
 }
