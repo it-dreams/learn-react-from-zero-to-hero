@@ -12,7 +12,11 @@ const News = (props) => {
     const [totalResults, setTotalResults] = useState(0);
 
     const updateNews = async () => {
+
+        // English News with all Categories
         const topHeadlines = `https://newsapi.org/v2/${props.newsType}?country=${props.country}&category=${category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+
+        // Hindi News without Categories
         // const allNewsUrl = `https://newsapi.org/v2/${props.newsType}?domains=${props.newsDomain}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
 
         setLoading(true);
