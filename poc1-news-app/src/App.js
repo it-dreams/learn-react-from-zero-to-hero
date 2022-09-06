@@ -14,8 +14,8 @@ function App() {
   const { category, name, date } = useParams();
 
   const apiKey = process.env.REACT_APP_NEWS_API;
-  const newsType = 'top-headlines';
-  // const newsType = 'everything';
+  const newsType = 'top-headlines';  // English News
+  // const newsType = 'everything';  // Hindi News
   const newsDomain = 'aajtak.in'; //abplive.com, indiatoday.in, indiatvnews.com, 
   const country = 'in';
   // const category = ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'];
