@@ -14,7 +14,9 @@ class Sidebar extends Component {
 
     async componentDidMount() {
         let topHeadlines = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}`;
+
         // let allNewsUrl = `https://newsapi.org/v2/${this.props.newsType}?domains=${this.props.newsDomain}&apiKey=${this.props.apiKey}&page=1&pageSize=${this.props.pageSize}`;
+
         this.setState({ loading: true })
         let data = await fetch(topHeadlines);
         let parseData = await data.json();
