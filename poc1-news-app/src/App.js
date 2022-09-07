@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container-fluid" style={{ minHeight: '90vh', marginTop: '50px' }}>
+      <div className="news-app container-fluid">
         <div className='row'>
           <div className='col-lg-9 col-md-8 col-sm-12'>
             <Routes>
@@ -36,17 +36,17 @@ function App() {
 
               {/* Routes for category */}
               <Route exact path='category' element={<Categories />} >
-                <Route exect path=':category' element={<News key={category} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} />
+                <Route exect path=':category' element={<News key={category} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} />
               </Route>
 
               {/* Routes for sources */}
               <Route exect path='source' element={<Sources />}>
-                <Route exect path=':name' element={<News key={name} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} />
+                <Route exect path=':name' element={<News key={name} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} />
               </Route>
 
               {/* Routes for archives */}
               <Route exect path='archive' element={<Archives />}>
-                <Route exect path=':date' element={<News key={date} style={{ minHeight: '90vh' }} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} />
+                <Route exect path=':date' element={<News key={date} apiKey={apiKey} newsType={newsType} newsDomain={newsDomain} category={category} country={country} pageSize={pageSize} />} />
               </Route>
 
               {/* Routes for 404 page */}

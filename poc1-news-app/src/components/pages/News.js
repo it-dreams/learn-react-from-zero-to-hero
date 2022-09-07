@@ -43,10 +43,8 @@ const News = (props) => {
     }
 
     return (
-        <div className="container my-4">
-            {/* <h1 className=' text-center'>NewsApp - Top Headlines</h1> */}
-
-            <div className="row" style={{ minHeight: '60vh', marginTop: '20px' }}>
+        <div className="news-section container my-4">
+            <div className="row">
                 {loading && <Spinner />}
 
                 {!loading && articles.map((element) => {
