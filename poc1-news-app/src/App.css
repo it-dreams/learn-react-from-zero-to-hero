@@ -31,6 +31,10 @@ a, a:hover {
   height: 150px;
 }
 
+.card .card-body {
+  padding: 10px 10px;
+}
+
 .card .card-body .card-text .text-muted {
   font-size: 12px;
 }
